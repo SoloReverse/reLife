@@ -122,6 +122,23 @@ const config = {
           from: { "object-position": "center" },
           to: { "object-position": "top" },
         },
+        float: {
+          "0%": {
+            transform: "scale(1) translateY(50vh) translateX(30vw)",
+          },
+          "30%": {
+            transform: "scale(0.9) translateY(10vh) translateX(90vw)",
+          },
+          "50%": {
+            transform: "scale(1) translateY(90vh) translateX(90vw)",
+          },
+          "80%": {
+            transform: "scale(1.5) translateY(30vh) translateX(40vw)",
+          },
+          "100%": {
+            transform: "scale(1) translateY(50vh) translateX(30vw)",
+          },
+        },
       },
       animation: {
         "color-icons": "color-icons 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
@@ -129,6 +146,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "move-up": "move-up 10s ease-out",
+        float: "float 20s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },

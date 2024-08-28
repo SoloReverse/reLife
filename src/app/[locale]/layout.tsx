@@ -33,6 +33,7 @@ export default async function RootLayout({
           inter.variable
         )}
       >
+        <div className="blur-3xl bg-cyan-600 w-96 h-80 absolute top-24 left-2 rounded-full animate-float -z-50"></div>
         <ThemeProvider attribute="class" defaultTheme="system">
           <NextIntlClientProvider messages={messages}>
             {children}
