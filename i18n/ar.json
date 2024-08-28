@@ -1,0 +1,100 @@
+{
+  "main": {
+    "homepage": {
+      "title": "شو تتريا؟ اطلب <span class='text-primary'> القطعة </span> الي تباها احين",
+      "subtitle": "خبرنا شو الي تدور عليه ونحن بنحصله",
+      "availability": "متاح حالياً فقط في الإمارات العربية المتحدة."
+    },
+    "benefit1": {
+      "title": "سوّ طلبات بسرعة",
+      "description": "سهّل بحثك - بكبس كم زر، اطلب قطعة السيارة وخلك على اطلاع بالردود.",
+      "src": "/illustration-create.png",
+      "alt": "Request creation illustration"
+    },
+    "benefit2": {
+      "title": "أسعار تناسبك",
+      "description": "احصل على عروض من عدة بائعي قطع غيار سيارات بأسعار تنافسية ومعقولة واختار الأنسب لجيبك.",
+      "src": "/illustration-price.png",
+      "alt": "Great pricing illustration"
+    },
+    "benefit3": {
+      "title": "كل طلب يوصل عند باب بيتك",
+      "description": "شحننا الموثوق يضمن وصول قطع الغيار اللي طلبتها بسرعة وأمان، وبيوفر عليك الوقت والمتاعب.",
+      "src": "/illustration-delivery.png",
+      "alt": "Reliable delivery illustration"
+    },
+    "gettingStarted": {
+      "title": "كيف تبدأ",
+      "step1": {
+        "title": "سوّ طلب قطعة",
+        "description": "أرسل طلبك لشبكة بائعي قطع الغيار المستعملة."
+      },
+      "step2": {
+        "title": "استقبل العروض",
+        "description": "احصل على ردود من عدة بائعين كلهم بأسعار تنافسية."
+      },
+      "step3": {
+        "title": "اختار أفضل خيار",
+        "description": "حلل واختر أفضل عرض يناسب احتياجاتك."
+      },
+      "step4": {
+        "title": "سوي طلبك",
+        "description": "سوي طلبك وخلي قطعة السيارة توصل لك بأمان عند باب بيتك."
+      }
+    },
+    "callToAction": {
+      "text": "سوّ طلب واستقبل السعر لقطعة وحدة أو أكثر خلال دقائق. حالياً بس في الإمارات العربية المتحدة.",
+      "buttonText": "طلب جديد",
+      "partnership": "اريد ان اوفر قطعي عن طريق سكراب"
+    },
+    "partnerSection": {
+      "title": "تريد تتعاون معانا؟",
+      "description": "إذا كنت بائع قطع غيار سيارات مستعملة في الإمارات وتبغي تتعاون معانا لتعرض قطعك على عملائنا، عبي النموذج تحت وحن نتواصل معك.",
+      "buttonText": "تسجيل الشراكة"
+    }
+  },
+  "navigation": {
+    "header": {
+      "actions": {
+        "create": "سوّ طلب جديد",
+        "signup": "تسجيل",
+        "login": "تسجيل الدخول",
+        "help": "احصل على مساعدة",
+        "settings": "الإعدادات"
+      },
+      "sitelinks": {
+        "requests": "الطلبات",
+        "orders": "الطلبات"
+      },
+      "utilities": {
+        "theme": {
+          "dark": "تبديل إلى الوضع المظلم",
+          "light": "تبديل إلى الوضع الفاتح"
+        }
+      }
+    },
+    "footer": {
+      "Platform": {
+        "title": "المنصة",
+        "sitelinks": {
+          "signup": "التسجيل",
+          "help": "مساعدة المنصة",
+          "privacy": "سياسة الخصوصية",
+          "tc": "الشروط والأحكام"
+        }
+      },
+      "Company": {
+        "title": "الشركة",
+        "sitelinks": {
+          "about": "نبذة عن سكراب",
+          "investors": "المستثمرون",
+          "careers": "الوظائف",
+          "contact": "تواصل معنا"
+        }
+      }
+    }
+  },
+  "request-create": {
+    "title": "ارسل طلب جديد"
+  }
+}

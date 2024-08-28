@@ -1,0 +1,100 @@
+{
+  "main": {
+    "homepage": {
+      "title": "Don't wait. Get the <span class='text-primary'> parts </span> for your car now.",
+      "subtitle": "Tell us what you need and we will find it for you.",
+      "availability": "Currently available only in the United Arab Emirates."
+    },
+    "benefit1": {
+      "title": "Create Requests in a Matter of Seconds",
+      "description": "Streamline your search - with just a few clicks, make your car part request and watch the responses flow in.",
+      "src": "/illustration-create.png",
+      "alt": "Request creation illustration"
+    },
+    "benefit2": {
+      "title": "Pricing That Fits",
+      "description": "Obtain quotes from multiple car part vendors offering competitive and affordable rates and choose the perfect fit for your wallet.",
+      "src": "/illustration-price.png",
+      "alt": "Great pricing illustration"
+    },
+    "benefit3": {
+      "title": "Every Order Delivered to Your Doorstep",
+      "description": "Our reliable shipping ensures your ordered auto parts arrive promptly and safely, saving you time and hassle.",
+      "src": "/illustration-delivery.png",
+      "alt": "Reliable delivery illustration"
+    },
+    "gettingStarted": {
+      "title": "Getting Started",
+      "step1": {
+        "title": "Create a part request",
+        "description": "Send your request to our network of second-hand auto parts vendors."
+      },
+      "step2": {
+        "title": "Receive offers",
+        "description": "Get responses from multiple vendors each at competitive prices."
+      },
+      "step3": {
+        "title": "Pick the best option",
+        "description": "Analyze and choose the best offer that suits your needs."
+      },
+      "step4": {
+        "title": "Place your order",
+        "description": "Place your order and have the car part safely delivered right to your doorstep."
+      }
+    },
+    "callToAction": {
+      "text": "Create a request and receive the price for one part or many in minutes. Currently only in the United Arab Emirates.",
+      "buttonText": "Request a part",
+      "partnership": "Partner with us"
+    },
+    "partnerSection": {
+      "title": "Want to partner with us?",
+      "description": "If you are a second-hand auto parts vendor in the UAE interested in partnering with us to offer your parts to our customers, please fill out the form below and we will reach out to you.",
+      "buttonText": "Partner Registration"
+    }
+  },
+  "navigation": {
+    "header": {
+      "actions": {
+        "create": "Create new request",
+        "signup": "Sign Up",
+        "login": "Login",
+        "help": "Get Help",
+        "settings": "Settings"
+      },
+      "sitelinks": {
+        "requests": "Requests",
+        "orders": "Orders"
+      },
+      "utilities": {
+        "theme": {
+          "dark": "Toggle Dark",
+          "light": "Toggle Light"
+        }
+      }
+    },
+    "footer": {
+      "Platform": {
+        "title": "Platform",
+        "sitelinks": {
+          "signup": "Sign Up",
+          "help": "Platform Help",
+          "privacy": "Privacy Policy",
+          "tc": "Terms & Conditions"
+        }
+      },
+      "Company": {
+        "title": "Company",
+        "sitelinks": {
+          "about": "About Scrapp",
+          "investors": "Investors",
+          "careers": "Careers",
+          "contact": "Contact Us"
+        }
+      }
+    }
+  },
+  "request-create": {
+    "title": "Whatever your car needs, <linebreak></linebreak> Let us get you up and running."
+  }
+}
