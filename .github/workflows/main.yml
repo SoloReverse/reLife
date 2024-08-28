@@ -43,9 +43,10 @@ jobs:
     - name: Restart PM2 Service
       run: |
         destination_dir="$HOME/relife"
-
+        export NVM_DIR=~/.nvm
+        source ~/.nvm/nvm.sh
         cd "$destination_dir"
-        pm2 restart scrapp.ae
+        pm2 restart relife.paperworks
 
     - name: Clean up files
       if: always()
