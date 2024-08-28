@@ -1,14 +1,16 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
+  safelist: ["text-primary"],
   theme: {
     container: {
       center: true,
@@ -18,12 +20,22 @@ const config = {
       },
     },
     extend: {
+      zIndex: {
+        100: "100",
+      },
+      backgroundImage: {
+        desert: "url('../../public/blurred-bw-sand.png')",
+        desertx: "url('../../public/blurred-bw-sand-x.png')",
+      },
       colors: {
+        shit: "hsl(var(--border))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+        bgblack: "hsl(240 9% 9%)",
         foreground: "hsl(var(--foreground))",
+        op0: "rgba(255,255,255,0)",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -36,9 +48,14 @@ const config = {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        soft: {
+          DEFAULT: "hsl(var(--soft-foreground))",
+          foreground: "hsl(var(--soft-foreground))",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
+          primary: "hsl(var(--muted-primary))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -52,6 +69,15 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+        },
+        fontFamily: {
+          // @ts-expect-error
+          sans: ["var(--font-sans)", ...fontFamily.sans],
+          // @ts-expect-error
+          mono: ["var(--font-mono)", ...fontFamily.mono],
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -59,6 +85,31 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "color-icons": {
+          "0%": {
+            color: "hsl(var(--primary))",
+            transform: "scale(0.98)",
+          },
+          "50%": {
+            color: "hsl(var(--foreground))",
+            transform: "scale(0.96)",
+          },
+          "100%": {
+            color: "hsl(var(--primary))",
+            transform: "scale(0.98)",
+          },
+        },
+        "pulse-bg": {
+          "0%": {
+            transform: "scale(0.98)",
+          },
+          "50%": {
+            transform: "scale(0.96)",
+          },
+          "100%": {
+            transform: "scale(0.98)",
+          },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -67,14 +118,24 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "move-up": {
+          from: { "object-position": "center" },
+          to: { "object-position": "top" },
+        },
       },
       animation: {
+        "color-icons": "color-icons 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "pulse-bg": "pulse-bg 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "move-up": "move-up 10s ease-out",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwindcss-debug-screens"),
+  ],
+} satisfies Config;
 
-export default config
+export default config;
