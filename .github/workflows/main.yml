@@ -1,0 +1,54 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+# Version 0.0.5
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Copy Files from Checkout Directory
+      run: |
+        source_dir="${{ github.workspace }}"
+        destination_dir="$HOME/relife"
+
+        echo "Cleaning the destination directory: $destination_dir"
+        rm -rf "$destination_dir"/*
+
+        mkdir -p "$destination_dir"
+
+        echo "Copying files from '$source_dir' to '$destination_dir'"
+        cp -rv "$source_dir"/* "$destination_dir/"
+
+        echo "Files from '$source_dir' have been copied to '$destination_dir'."
+
+    - name: Build Next.js
+      run: |
+        destination_dir="$HOME/relife"
+
+        cd "$destination_dir"
+        npm install
+        npm run build
+
+    - name: Restart PM2 Service
+      run: |
+        destination_dir="$HOME/relife"
+
+        cd "$destination_dir"
+        pm2 restart scrapp.ae
+
+    - name: Clean up files
+      if: always()
+      run: |
+        echo "Cleaning up files..."
+        rm -rf "$HOME/relife/a" "$HOME/relife/b" "$HOME/relife/TestResults"
