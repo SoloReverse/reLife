@@ -108,14 +108,15 @@ function StatusList({
               )}
               key={status.value}
               value={status.value}
-              onSelect={(value) => {
+              onSelect={() => {
                 locale == status.value
                   ? null
                   : setSelectedStatus(
-                      statuses.find((priority) => priority.value === value) ||
-                        null
+                      statuses.find(
+                        (priority) => priority.value === status.value
+                      ) || null
                     );
-                setUserLocale(value);
+                setUserLocale(status.value);
                 setOpen(false);
               }}
             >
