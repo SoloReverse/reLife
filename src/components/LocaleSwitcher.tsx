@@ -1,15 +1,11 @@
 "use client";
 
-import * as React from "react";
-
 import { CircleFlag } from "react-circle-flags";
 import { useMediaQuery } from "@/lib/hooks";
 import { Button } from "@/components/ui/button";
 import {
   Command,
-  CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
@@ -19,10 +15,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Link, usePathname } from "@/navigation";
+import { usePathname } from "@/navigation";
+import Link from "next/link";
 import { Flag, Globe } from "lucide-react";
-import { useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { setUserLocale } from "@/services/locale";
+import { redirect, RedirectType } from "next/navigation";
 
 type Status = {
   value: "ar" | "en";
@@ -40,12 +39,10 @@ const statuses: Status[] = [
   },
 ];
 
-export function LocaleSwitcher({ locale }: { locale: "en" | "ar" | string }) {
-  const [open, setOpen] = React.useState(false);
+export function LocaleSwitcher({ locale }: { locale: "en" | "ar" }) {
+  const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(
-    null,
-  );
+  const [selectedStatus, setSelectedStatus] = useState<Status | null>(null);
 
   if (isDesktop) {
     return (
@@ -93,7 +90,7 @@ function StatusList({
 }: {
   setOpen: (open: boolean) => void;
   setSelectedStatus: (status: Status | null) => void;
-  locale: "en" | "ar" | string;
+  locale: "en" | "ar";
 }) {
   const path = usePathname();
   return (
@@ -101,36 +98,36 @@ function StatusList({
       <CommandList>
         <CommandGroup>
           {statuses.map((status) => (
-            <Link href={path} locale={status.value}>
-              <CommandItem
-                className={cn(
-                  "p-4 lg:p-2",
-                  locale == status.value
-                    ? "bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-700"
-                    : "hover:bg-neutral-300 hover:dark:bg-neutral-700",
-                )}
-                key={status.value}
-                value={status.value}
-                onSelect={(value) => {
-                  locale == status.value
-                    ? null
-                    : setSelectedStatus(
-                        statuses.find((priority) => priority.value === value) ||
-                          null,
-                      );
-                  setOpen(false);
-                }}
-              >
-                <CircleFlag
-                  countryCode={status.value == "ar" ? "ae" : "us"}
-                  height={24}
-                  className={
-                    "h-6 rounded-xl border border-background ltr:mr-6 rtl:ml-6"
-                  }
-                />
-                {status.label}
-              </CommandItem>
-            </Link>
+            <CommandItem
+              onClick={() => redirect(path, RedirectType.replace)}
+              className={cn(
+                "p-4 lg:p-2",
+                locale == status.value
+                  ? "bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-700"
+                  : "hover:bg-neutral-300 hover:dark:bg-neutral-700"
+              )}
+              key={status.value}
+              value={status.value}
+              onSelect={(value) => {
+                locale == status.value
+                  ? null
+                  : setSelectedStatus(
+                      statuses.find((priority) => priority.value === value) ||
+                        null
+                    );
+                setUserLocale(value);
+                setOpen(false);
+              }}
+            >
+              <CircleFlag
+                countryCode={status.value == "ar" ? "ae" : "us"}
+                height={24}
+                className={
+                  "h-6 rounded-xl border border-background ltr:mr-6 rtl:ml-6"
+                }
+              />
+              {status.label}
+            </CommandItem>
           ))}
         </CommandGroup>
       </CommandList>

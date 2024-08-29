@@ -9,7 +9,8 @@ import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
 export function Footer() {
-  const locale = useLocale();
+  // const locale = useLocale();
+  const locale = "en";
   const t = useTranslations("navigation.footer");
   return (
     <footer className="border-t border-transparent bg-zinc-900 px-8 pb-6 pt-20 text-zinc-50 dark:border-zinc-700 dark:bg-transparent">

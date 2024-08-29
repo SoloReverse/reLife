@@ -23,6 +23,9 @@ const config = {
       zIndex: {
         100: "100",
       },
+      backgroundColor: {
+        testShit: "linear-gradient(var(--background), var(--foreground))",
+      },
       backgroundImage: {
         desert: "url('../../public/blurred-bw-sand.png')",
         desertx: "url('../../public/blurred-bw-sand-x.png')",
