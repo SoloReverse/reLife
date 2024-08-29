@@ -10,7 +10,10 @@ import { getUserLocale } from "@/services/locale";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Re.life Market",
+  title: {
+    template: "%s | reLife",
+    default: "Welcome to ReLife",
+  },
   description:
     "Re.life is a leading online marketplace dedicated to sustainability and environmental responsibility. Our platform connects individuals and businesses with recycling services, making it easier to recycle materials and reduce waste. By offering a user-friendly interface, we facilitate the efficient collection and processing of recyclables, helping to close the loop in the circular economy. ",
 };
