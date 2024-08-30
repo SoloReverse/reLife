@@ -14,6 +14,7 @@ declare global {
       WHATSAPP_API_KEY: string;
       STRIPE_API_KEY: string;
       SECRET_API_KEY: string;
+      PHONE: string;
     }
   }
 }

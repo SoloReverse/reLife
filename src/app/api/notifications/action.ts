@@ -102,6 +102,29 @@ export async function CreateRequestNotification({
     },
   });
 
+  await fetch("https://graph.facebook.com/v20.0/375530342317386/messages", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.WHATSAPP_API_KEY}`,
+      "Content-Type": `application/json`,
+    },
+    body: JSON.stringify({
+      messaging_product: "whatsapp",
+      to: process.env.PHONE,
+      type: "template",
+      template: {
+        name: "relife_notification",
+        language: { code: "en" },
+        components: [
+          {
+            type: "body",
+            parameters: [{ type: "text", text: phone }],
+          },
+        ],
+      },
+    }),
+  });
+
   const res = await fetch(
     "https://graph.facebook.com/v20.0/375530342317386/messages",
     {
@@ -112,7 +135,7 @@ export async function CreateRequestNotification({
       },
       body: JSON.stringify({
         messaging_product: "whatsapp",
-        to: "+971559406004",
+        to: phone,
         type: "template",
         template: {
           name: "request_relife",
