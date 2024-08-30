@@ -59,7 +59,7 @@ export default function Page() {
         {generation.map((message) => {
           if (message.role == "assistant") {
             return (
-              <div className="pr-12 mr-6 lg:mr-48 rounded-lg p-4 py-6 scroll-pb-48 line">
+              <div className="ltr:pr-12 rtl:pl-12 ltr:mr-6 rtl:ml-6 ltr:lg:mr-48 rtl:lg:ml-48 rounded-lg p-4 py-6 scroll-pb-48 line">
                 <Bot className="mb-4" />
                 <Markdown
                   className={"text-sm leading-relaxed"}
@@ -78,7 +78,7 @@ export default function Page() {
             );
           } else {
             return (
-              <div className="pl-12 ml-6 lg:ml-48 rounded-lg p-4 py-6 scroll-pb-48 line mb-4 flex flex-col items-end min-w-12">
+              <div className="ltr:pl-12 rtl:pr-12 ltr:ml-6 rtl:mr-6 ltr:lg:ml-48 rtl:lg:mr-48 rounded-lg p-4 py-6 scroll-pb-48 line mb-4 flex flex-col items-end min-w-12">
                 <User className="mb-4 mr-2" />
                 <Markdown
                   className={
@@ -130,7 +130,7 @@ export default function Page() {
           ></Textarea>
           <Button
             variant="default"
-            className="p-4 flex flex-col h-full ml-4 hover:scale-105 hover:bg-primary transition-all duration-500 ease-in-out"
+            className="p-4 flex flex-col h-full ltr:ml-4 rtl:mr-4 hover:scale-105 hover:bg-primary transition-all duration-500 ease-in-out"
             onClick={async () => {
               setGeneration([...generation, { role: "user", content: input }]);
               setInput("");
