@@ -144,9 +144,9 @@ export async function CreateRequestNotification({
             {
               type: "body",
               parameters: [
-                { type: "text", text: "ManCoSupply" },
-                { type: "text", text: `${price} AED` },
-                { type: "text", text: "000000001" },
+                { type: "text", text: "Re.Life Alpha" },
+                { type: "text", text: `${insertDecimal(price)} AED` },
+                { type: "text", text: `000000001-${product}` },
                 { type: "text", text: "Re.AE.03X" },
               ],
             },
@@ -168,4 +168,10 @@ export async function CreateRequestNotification({
   );
   console.log(await res.json());
   return res.status;
+}
+
+export function insertDecimal(number: number) {
+  const numString = number.toString();
+  const length = numString.length - 2;
+  return `${numString.slice(0, length)}.${numString.slice(length)}`;
 }
