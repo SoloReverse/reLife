@@ -90,7 +90,7 @@ export function Header() {
             arLight="/logos/ar.webp"
             arDark="/logos/ar-dark.webp"
             alt="Re.Life Marketplace logo"
-            width={120}
+            width={100}
             height={30}
           />
         </Link>

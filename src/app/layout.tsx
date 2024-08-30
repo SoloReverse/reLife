@@ -28,7 +28,10 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale == "ar" ? "rtl" : "ltr"}>
       <body
-        className={cn("bg-background font-sans antialiased", inter.variable)}
+        className={cn(
+          "bg-background font-sans antialiased fixed w-full h-full max-h-screen pb-24",
+          inter.variable
+        )}
       >
         <ThemeProvider attribute="class" defaultTheme="system">
           <NextIntlClientProvider messages={messages}>
