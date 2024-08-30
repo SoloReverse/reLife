@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowDown, Bot, SendIcon } from "lucide-react";
+import { ArrowDown, Bot, SendIcon, User } from "lucide-react";
 import { TextareaHTMLAttributes, useEffect, useRef, useState } from "react";
 import { generate } from "./action";
 import { readStreamableValue } from "ai/rsc";
@@ -51,30 +51,53 @@ export default function Page() {
   }, [chatContainerRef.current?.scrollHeight]);
 
   return (
-    <div className="relative flex flex-col h-full justify-between pb-12">
+    <div className="relative flex flex-col h-full justify-between pb-12 mb-4">
       <div
         ref={chatContainerRef}
         className="w-full lg:mb-4 overflow-auto pb-12 scrollbar-hide p-6"
       >
         {generation.map((message) => {
-          return (
-            <div className="pr-12 mr-6 lg:mr-48 bg-primary/20 rounded-lg p-4 py-6 scroll-pb-48 line">
-              <Bot className="mb-4" />
-              <Markdown
-                className={"text-sm leading-relaxed"}
-                components={{
-                  hr(props) {
-                    return <br></br>;
-                  },
-                  li(props) {
-                    return <li>{props.children}</li>;
-                  },
-                }}
-              >
-                {message.content}
-              </Markdown>
-            </div>
-          );
+          if (message.role == "assistant") {
+            return (
+              <div className="pr-12 mr-6 lg:mr-48 rounded-lg p-4 py-6 scroll-pb-48 line">
+                <Bot className="mb-4" />
+                <Markdown
+                  className={"text-sm leading-relaxed"}
+                  components={{
+                    hr(props) {
+                      return <br></br>;
+                    },
+                    li(props) {
+                      return <li>{props.children}</li>;
+                    },
+                  }}
+                >
+                  {message.content}
+                </Markdown>
+              </div>
+            );
+          } else {
+            return (
+              <div className="pl-12 ml-6 lg:ml-48 rounded-lg p-4 py-6 scroll-pb-48 line mb-4 flex flex-col items-end min-w-12">
+                <User className="mb-4 mr-2" />
+                <Markdown
+                  className={
+                    "text-sm leading-relaxed bg-primary/10 rounded-xl p-4"
+                  }
+                  components={{
+                    hr(props) {
+                      return <br></br>;
+                    },
+                    li(props) {
+                      return <li>{props.children}</li>;
+                    },
+                  }}
+                >
+                  {message.content}
+                </Markdown>
+              </div>
+            );
+          }
         })}
       </div>
       <div className="fixed bottom-6 items-center w-[95%] self-center flex flex-col">
@@ -109,12 +132,12 @@ export default function Page() {
             variant="default"
             className="p-4 flex flex-col h-full ml-4 hover:scale-105 hover:bg-primary transition-all duration-500 ease-in-out"
             onClick={async () => {
-              console.log("enter function");
+              setGeneration([...generation, { role: "user", content: input }]);
+              setInput("");
               const { messages } = await continueConversation([
                 ...generation,
                 { role: "user", content: input },
               ]);
-              setInput("");
               setGeneration(messages);
             }}
           >

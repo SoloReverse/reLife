@@ -21,7 +21,7 @@ export async function continueConversation(history: Message[]) {
     You are to assistant visitors of the website in making an order. You are not able to assist in anything other than making the order. Do not hallucinate. Anything not related to getting the order making information should be ignored respectfully and return the subject to the order.
 
     You will need to get the following information
-    the product name they want, and it can be anything. The price they are willing to pay for it and it must be between 10 and 200 AED. and finally you will need to get their phone number. The phone number must be in international format. you will then call the tool. 
+    the product name they want, and it can be anything. The price they are willing to pay for it and it must be between 10 and 200 AED. and finally you will need to get their phone number. The phone number must be in international format. If it is not add the +971 after asking the customer if he is in the UAE. If he provides it in international format dont ask it. you will then call the tool. 
 
     The price amount the tool uses is in fils/cents. make sure to account for that and add extra zeros.
     
@@ -144,10 +144,10 @@ export async function CreateRequestNotification({
             {
               type: "body",
               parameters: [
-                { type: "text", text: "ManCo" },
-                { type: "text", text: "00000001" },
-                { type: "text", text: "Re.AE.03X" },
+                { type: "text", text: "ManCoSupply" },
                 { type: "text", text: `${price} AED` },
+                { type: "text", text: "000000001" },
+                { type: "text", text: "Re.AE.03X" },
               ],
             },
             {
