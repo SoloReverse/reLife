@@ -170,7 +170,7 @@ export async function CreateRequestNotification({
   return res.status;
 }
 
-export function insertDecimal(number: number) {
+function insertDecimal(number: number) {
   const numString = number.toString();
   const length = numString.length - 2;
   return `${numString.slice(0, length)}.${numString.slice(length)}`;
