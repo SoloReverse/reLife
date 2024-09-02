@@ -12,6 +12,7 @@ import {
   CreateRequestNotification,
   Message,
 } from "@/app/api/notifications/action";
+import { Input } from "@/components/ui/input";
 
 export default function Page() {
   const [input, setInput] = useState<string>("");
@@ -54,7 +55,7 @@ export default function Page() {
     <div className="relative flex flex-col h-full justify-between pb-12 mb-4">
       <div
         ref={chatContainerRef}
-        className="w-full lg:mb-4 overflow-auto pb-12 scrollbar-hide p-6"
+        className="w-full lg:mb-4 overflow-scroll pb-12 scrollbar-hide p-6"
       >
         {generation.map((message) => {
           if (message.role == "assistant") {
@@ -119,7 +120,8 @@ export default function Page() {
           </Button>
         )}
         <div className="flex flex-row h-12 w-full items-center">
-          <Textarea
+          <Input
+            //@ts-ignore
             ref={TextRef}
             value={input}
             onChange={(e) => {
@@ -127,7 +129,7 @@ export default function Page() {
             }}
             className="resize-none min-h-full max-h-full rounded-2xl w-full"
             placeholder="hello"
-          ></Textarea>
+          ></Input>
           <Button
             variant="default"
             className="p-4 flex flex-col h-full ltr:ml-4 rtl:mr-4 hover:scale-105 hover:bg-primary transition-all duration-500 ease-in-out"

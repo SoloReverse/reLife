@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 function MenuPublic() {
   const [open, setOpen] = useState(false);
   const t = useTranslations("navigation.header");
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <>
@@ -39,11 +39,11 @@ function MenuPublic() {
             </Button>
             <Button
               variant="secondary"
-              disabled
               className="my-1 w-full lg:w-auto lg:justify-end"
             >
               {t("actions.login")}
             </Button>
+            <ModeToggle text="theme"></ModeToggle>
           </div>
           <div className="mt-4"></div>
         </SheetContent>
